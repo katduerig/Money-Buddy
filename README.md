@@ -32,7 +32,8 @@ The code to both write and read from Google sheets is in `sheets.py`.
 
 This is the format the program creates:
 
-INSERT EXAMPLE OF YOUR GOOGLE SHEETS DATA
+Date / Price / Category / Note / Company / Method of Payment
+8/22/24 / -$5.00 / Food / Bagel / Starbucks / Capital One Debit Card
 
 ## Future plans
 
