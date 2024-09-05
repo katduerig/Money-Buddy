@@ -83,8 +83,5 @@ def get_monthly_category_totals():
             else:
                 sums[timeKey][category]=amount
 
-    # display the results
-    # print("\nGrouped and Summed Data:")
-    # for key, total_amount in sums.items():
-    #     print(f"{key}, Total Spent: ${total_amount:.2f}")
+
     return sums

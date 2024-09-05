@@ -4,16 +4,10 @@ head, body {
 
 body {
     width: 100%;
-    /* padding: 20px; */
-    /* padding-left: 20px; */
-    /* padding-right: 20px; */
     font-family: sans-serif;
     min-height: 100vh;
     height: 100%;
     margin: 0;
-    /* background-color: #dc386f; */
-    /* background: linear-gradient(#dc386f, #a84c6b); */
-    /* changes the color of the text */
     color: #f5f6f7; 
 }
 
@@ -21,8 +15,6 @@ h1 {
     font-size: 6vh;
     margin-top: 6vh;
     margin-bottom: 15px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-    /* max-width: 95%; */
     word-wrap: break-word;
 
 
@@ -113,7 +105,6 @@ p {
     margin-top: 5vh;
     max-width: 30vw;
     color:#06e9de;
-    /* position: absolute; */
 }
 
 @media (min-width: 1200px) { /* if desktop */
@@ -139,19 +130,12 @@ p {
     text-align: center;
  }
 
-/*@media (min-width: 1200px) { /* if phone */
-    /* .datesize {
-        ?
-    }
-} */ 
 
 .gift, .food, .clothes, .beauty, .medical, .care, .general, .groceries, .travel, .auto, .entertainment, .event{
     display: flex;
     flex-direction: column;
-    /*width: 15vw;*/
 }
 
-/* FROM CALCULATIONS */
 
 #answers input {
     display: block;
@@ -201,7 +185,6 @@ form {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    /* width: 80vw; */
 }
 
 .pairone, .pairtwo, .pairthree {
@@ -213,9 +196,6 @@ form {
 }
 
 
-
-
-/* FROM CALCULATIONS */
 
 .rowContainer {
     display: flex;
