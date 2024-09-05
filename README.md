@@ -2,7 +2,7 @@
 
 A website to track personal expenses. Uses Google sheets API as a data-store.
 
-<img src="images/money_buddy.png" alt="screenshot" width="200"/>
+<img src="images/money_buddy.png" alt="screenshot" width="400"/>
 
 ## Setup
 
@@ -23,7 +23,8 @@ You can find the spreadsheet id in the url of the google sheets file you wish to
 
 ## Example usage
 
-INSERT 1 or 2 SCREENSHOTS OF HOW THE PRODUCT IS USED (insert new expenses + viewing monthly category totals)
+<img src="images/expenses.png" alt="screenshot" width="400"/>
+<img src="images/totals.png" alt="screenshot" width="400"/>
 
 ## How the data is stored
 
