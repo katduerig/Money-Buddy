@@ -1,0 +1,230 @@
+head, body {
+    text-align: center;
+}
+
+body {
+    width: 100%;
+    /* padding: 20px; */
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    font-family: sans-serif;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    /* background-color: #dc386f; */
+    /* background: linear-gradient(#dc386f, #a84c6b); */
+    /* changes the color of the text */
+    color: #f5f6f7; 
+}
+
+h1 {
+    font-size: 6vh;
+    margin-top: 6vh;
+    margin-bottom: 15px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* max-width: 95%; */
+    word-wrap: break-word;
+
+
+}
+
+h2 {
+    font-size: 4vh;
+    margin-top: 0;
+    margin-top: 8vh;
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr { height: 2px;
+    background-color: brown;
+    border-color: brown;
+}
+
+.bear_holder {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding-right: 15px;
+}
+
+.catwrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 15px;
+    }    
+
+.moneybags {
+    max-width: 15vh;
+    }
+
+.bear {
+    display: block;
+    align-items: center;
+    max-width: 20vh;
+
+}
+
+.buffer {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 3vh;
+
+}
+
+.buffer2 {
+    padding-top: 15px;
+}
+
+p {
+    font-size: 3vh;
+}
+
+.month_yearHTML {
+    font-weight: bold;
+}
+
+.linkText {
+    font-size: 2.5vh;
+    color: white;
+}
+
+.theLink {
+    text-decoration: none;
+}
+
+* {
+    font-family: "Roboto";
+}
+
+
+.speechBubbleText {
+    font-size: 2vh;
+    margin-top: 5vh;
+    max-width: 30vw;
+    color:#06e9de;
+    /* position: absolute; */
+}
+
+@media (min-width: 1200px) { /* if desktop */
+    .speechBubbleText {
+        max-width: 10vw;
+    }
+}
+
+.answers {
+    font-size: 2vh;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    font-size: 2vh;
+}
+
+.datesize {
+    font-size: 2vw;
+    text-align: center;
+ }
+
+/*@media (min-width: 1200px) { /* if phone */
+    /* .datesize {
+        ?
+    }
+} */ 
+
+.gift, .food, .clothes, .beauty, .medical, .care, .general, .groceries, .travel, .auto, .entertainment, .event{
+    display: flex;
+    flex-direction: column;
+    /*width: 15vw;*/
+}
+
+/* FROM CALCULATIONS */
+
+#answers input {
+    display: block;
+    text-align: center;
+}
+
+.submit {
+    font-size: 2vh;
+}
+
+.submitbutton {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em ;
+    
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.boxes {
+    text-align: center;
+}
+  
+.multiplechoiceimg {
+    max-width: 10vw;
+    height: auto;
+    width: 10vh;
+}
+
+  
+.idkyet {
+    display: flex;
+    justify-content: space-around;
+}
+  
+.options {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* width: 80vw; */
+}
+
+.pairone, .pairtwo, .pairthree {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2vh;
+
+}
+
+
+
+
+/* FROM CALCULATIONS */
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.date {
+  font-weight: bold;
+}

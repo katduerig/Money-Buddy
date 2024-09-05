@@ -1,0 +1,6 @@
+secrets
+.vscode
+__pycache__
+OLD/
+.pytest_cache
+config.py

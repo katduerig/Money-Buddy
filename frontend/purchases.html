@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Money Buddy</title>
+    <link rel="stylesheet" href="master.css" />
+</head>
+
+<style>
+    body {
+        background: linear-gradient(#c657e2, #4ca877)
+    }
+</style>
+
+
+<body>
+    <h1>Expenses</h1>
+    <form id="answers" method="post" action="/info">
+        <form id="answers" method="post" action="/info">
+            <label for="note" class="answers">What did you buy?</label>
+            <input id="note" name="note" type="text" />
+            <label for="amount" class="answers">How much was it?</label>
+            <input id="amount" name="amount" type="text" />
+            <label for="where" class="answers">Where did you buy this from?</label>
+            <input id="where" name="where" type="text" />
+            <label for="when" class="answers">When did you buy this?</label>
+            <input class="datesize" type="date" id="when" name="when" />
+            <label for="method" class="answers">How did you purchase this?</label>
+            <div class="pairone">
+                <input type="radio" name="method" value="Cash" />
+                <span>Cash</span>
+            </div>
+            <div class="pairtwo">
+                <input type="radio" name="method" value="Discover Credit" />
+                <span>Discover Credit</span>
+            </div>
+            <div class="pairthree">
+                <input type="radio" name="method" value="Capital One Debit" />
+                <span>Capital One Debit</span>
+            </div>
+
+            <label class="answers" for="cat">What catagory would you place this in?</label>
+
+            <div class="catwrapper">
+
+                <div class="food">
+                    <input type="radio" name="category" value="Food" />
+                    <img class="multiplechoiceimg" src="/pretzelreal.png" alt="food">
+                    Food</img>
+                </div>
+
+
+                <div class="gift">
+                    <input type="radio" name="category" value="Gift" />
+                    <img class="multiplechoiceimg" src="/Gift.png" alt="gift">
+                    Gift</img>
+                </div>
+
+                <div class="beauty">
+                    <input type="radio" name="category" value="Beauty" />
+                    <img class="multiplechoiceimg" src="/beauty.png" alt="beauty">
+                    Beauty</img>
+                </div>
+
+                <div class="clothes">
+                    <input type="radio" name="category" value="Clothing" /><img class="multiplechoiceimg"
+                        src="/clothes.png" alt="clothes">
+                    Clothing</img>
+                </div>
+
+                <div class="medical">
+                    <input type="radio" name="category" value="Medical" />
+                    <img class="multiplechoiceimg" src="/medical.png" alt="medical">
+                    Medical</img>
+                </div>
+
+                <div class="care">
+                    <input type="radio" name="category" value="Personal Care" />
+                    <img class="multiplechoiceimg" src="/care.png" alt="care">
+                    Personal Care</img>
+                </div>
+
+                <div class="general">
+                    <input type="radio" name="category" value="General" />
+                    <img class="multiplechoiceimg" src="/general.png" alt="general">
+                    General</img>
+                </div>
+
+                <div class="groceries">
+                    <input type="radio" name="category" value="Groceries" />
+                    <img class="multiplechoiceimg" src="/groceries.png" alt="groceries">
+                    Groceries</img>
+                </div>
+
+                <div class="auto">
+                    <input type="radio" name="category" value="Auto" />
+                    <img class="multiplechoiceimg" src="/auto.png" alt="auto">
+                    Auto</img>
+                </div>
+
+                <div class="event">
+                    <input type="radio" name="category" value="Event" />
+                    <img class="multiplechoiceimg" src="/event.png" alt="event">
+                    Event</img>
+                </div>
+
+                <div class="entertainment">
+                    <input type="radio" name="category" value="Entertainment" />
+                    <img class="multiplechoiceimg" src="/entertainment.png" alt="entertainment">
+                    Entertainment</img>
+                </div>
+
+                <div class="travel">
+                    <input type="radio" name="category" value="Travel" />
+                    <img class="multiplechoiceimg" src="/travel.png" alt="travel">
+                    Travel</img>
+                </div>
+
+            </div>
+            <div class="submitbutton">
+                <input class="submit" type="submit" value="Submit" />
+            </div>
+
+
+        </form>
+</body>
+
+<script>
+    document.getElementById('answers').addEventListener('submit', function (event) {
+        // event.preventDefault(); // This stops the form from submitting normally
+        // You can add your own logic here to handle the form data as needed
+        console.log('Form submission prevented.');
+    });
+</script>
+
+
+
+</html>
