@@ -2,7 +2,7 @@
 
 A website to track personal expenses. Uses Google sheets API as a data-store.
 
-<img src="images/money_buddy.png" alt="screenshot"" width="200"/>
+<img src="images/money_buddy.png" alt="screenshot" width="200"/>
 
 ## Setup
 
