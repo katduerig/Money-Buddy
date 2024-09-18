@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -19,6 +21,11 @@
 <body>
   <h1>Calculations</h1>
   <h2>Monthly Totals</h2>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
 </body>
 
 <script>
@@ -26,9 +33,9 @@
   fetch('http://localhost:8000/get_month_totals').then(response => {
     return response.json()
   }).then(data => {
-    console.log("data: ", data)
+    // console.log("data: ", data)
     for (let [date, cost] of Object.entries(data)) {
-      console.log(`${date}: ${cost}`);
+      // console.log(`${date}: ${cost}`);
       var containerHTML = document.createElement('div');
       var dateHTML = document.createElement('div');
       var costHTML = document.createElement('div');
@@ -45,6 +52,12 @@
 
       document.body.appendChild(containerHTML);
 
+      // this is what is created from above
+      // <div class="rowContainer">
+      //   <div class="cost">26</div>
+      //   <div class="date">septemember 2024</div>
+      // </div>
+
     }
 
     var buffer = document.createElement('div');
@@ -54,6 +67,8 @@
   })
 
 
+  month_labels = []
+  month_costs = []
   fetch('http://localhost:8000/get_monthly_category_totals').then(response => {
     return response.json()
   }).then(data => {
@@ -63,6 +78,7 @@
       document.body.appendChild(month_yearHTML);
       month_yearHTML.innerHTML = month_year;
       for (let [category, total_amount] of Object.entries(category_dictionary)) {
+        total_amount_pie = total_amount.toFixed(2) * -1
         total_amount = "$" + String(total_amount.toFixed(2))
         // console.log(`${month_year}: ${category_dictionary}`);
         var totalHTML = document.createElement('div');
@@ -72,17 +88,50 @@
         totalHTML.innerHTML = category + " " + total_amount;
 
         document.body.appendChild(totalHTML);
+        month_labels.push(category)
+        month_costs.push(total_amount_pie)
       }
+      console.log(month_labels)
+      console.log(month_costs)
+
+      var new_month_canvas = document.createElement('canvas');
+      document.body.appendChild(new_month_canvas)
+
+      // console.log(month_costs)
+      new Chart(new_month_canvas, {
+        type: 'pie',
+        data: {
+          labels: month_labels,
+          datasets: [{
+            label: "This Month's Category Distribution",
+            data: month_costs,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+      month_labels = []
+      month_costs = []
       var buffer = document.createElement('div');
 
       buffer.className = "buffer2"
       document.body.appendChild(buffer)
+
     }
+
 
   })
 
 
+
 </script>
+
 
 
 
