@@ -35,6 +35,7 @@ h2 {
     margin: auto;
 }
 
+
 hr { height: 2px;
     background-color: brown;
     border-color: brown;
@@ -72,6 +73,49 @@ hr { height: 2px;
 
 }
 
+canvas{
+
+    width:400px !important;
+    height:400px !important;
+    align-items: center;
+  
+  }
+
+.income_header {
+    
+        text-align: center;
+        color: #ffffff;
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin: 20px auto;
+        background-color: #ff8c00; /* Bright orange to match the theme */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        width: 60%; /* Reduced width of the surrounding box */
+        font-family: 'Roboto', sans-serif; /* Updated font */
+        /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline around text  */
+}
+
+
+
+    
+.yeet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.graph_flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
 .buffer {
     padding-top: 40px;
     padding-bottom: 20px;
@@ -105,6 +149,9 @@ p {
     font-family: "Roboto";
 }
 
+/* .buffer category-header {
+    margin-bottom: 20px
+} */
 
 .speechBubbleText {
     font-size: 2vh;
@@ -137,10 +184,17 @@ p {
  }
 
 
-.gift, .food, .clothes, .beauty, .medical, .care, .general, .groceries, .travel, .auto, .entertainment, .event{
+.gift, .food, .clothes, .beauty, .medical, .care, .general, .groceries, .travel, .auto, .entertainment,.technology, .event, .hobbies{
     display: flex;
     flex-direction: column;
 }
+
+.category-header {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
 
 
 #answers input {
@@ -193,7 +247,7 @@ form {
     flex-wrap: wrap;
 }
 
-.pairone, .pairtwo, .pairthree {
+.pairone, .pairtwo, .pairthree, .pairfour {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -201,7 +255,9 @@ form {
 
 }
 
-
+.buffer3 {
+    margin-top: 5vh;
+}
 
 .rowContainer {
     display: flex;
@@ -214,3 +270,158 @@ form {
 .date {
   font-weight: bold;
 }
+
+
+
+/* Centered form styling */
+#income-form {
+    background-color: #fff; /* Light background for contrast */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto; /* Center form on the page */
+}
+
+/* Labels */
+#income-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Input fields */
+#income-form input[type="text"],
+#income-form input[type="date"],
+#income-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Submit button styling */
+#income-form input[type="submit"] {
+    background-color: #df7c30;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#income-form input[type="submit"]:hover {
+    background-color: #d5a319;
+}
+
+  
+  /* Expense & Income History Specific Styles */
+  .expense-history, .income-history {
+    background: linear-gradient(to bottom, #4f72da, #b23535);
+    color: #ffffff;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Header Styling */
+  .expense-history header, .income-history header {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .expense-history header h1, .income-history header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .expense-history nav a, .income-history nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .expense-history nav a:hover, .income-history nav a:hover {
+    background-color: #ffffff;
+    color: #4f72da;
+  }
+  
+  /* Table Styling */
+  .expense-history table, .income-history table {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .expense-history thead, .income-history thead {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .expense-history thead th, .income-history thead th {
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+    color: #ffffff;
+  }
+  
+  .expense-history tbody tr:nth-child(even), .income-history tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .expense-history tbody tr:hover, .income-history tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .expense-history tbody td, .income-history tbody td {
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  /* Footer Buffer */
+  .expense-history footer, .income-history footer {
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+  
+  /* Optional Buttons Styling */
+  .expense-history .button, .income-history .button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #4f72da;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .expense-history .button:hover, .income-history .button:hover {
+    background-color: #b23535;
+  }
+  

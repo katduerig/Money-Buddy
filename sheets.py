@@ -12,6 +12,8 @@ import config
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
+
+
 secrets_dir = pathlib.Path('secrets')
 if secrets_dir.exists():
     cached_credentials = secrets_dir.joinpath(f'google_credentials_cached.json')
@@ -83,3 +85,31 @@ def insert_one_row(when, amount, category, note, where, method):
     sheet.values().append(
             spreadsheetId=config.SPREADSHEET_ID, range=RANGE_NAME+'!A2:A2',
             valueInputOption="RAW", body=body).execute()
+    
+    # New function for inserting income
+
+def insert_income_row(date, amount, source, description):
+    setNote = {
+    "insertDimension": {
+        "range": {
+            "sheetId": 0,
+            "dimension": "ROWS",
+            "startIndex": 1,
+            "endIndex": 2
+        },
+        "inheritFromBefore": False
+    }
+}
+    request = service.spreadsheets().batchUpdate(
+            spreadsheetId=config.INCOME_SPREADSHEET_ID, body={"requests": [setNote]})
+    request.execute()
+
+    values = [
+        [date, amount, source, description]
+    ]
+    
+    body = {'values': values}
+    sheet.values().append(
+            spreadsheetId=config.INCOME_SPREADSHEET_ID, range="Income"+'!A2:A2',
+            valueInputOption="RAW", body=body).execute()
+

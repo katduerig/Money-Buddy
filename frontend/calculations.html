@@ -19,16 +19,58 @@
 </style>
 
 <body>
-  <h1>Calculations</h1>
-  <h2>Monthly Totals</h2>
+  <h1>Expense History</h1>
+  <h2 class="category-header">Monthly Totals</h2>
 
-  <div>
-    <canvas id="myChart"></canvas>
+  <div id="month_totals"></div>
+
+
+  <div id="category_breakdowns" class="graph_flexbox">
+
+    <!-- <div class="yeet">
+      <div class="month_year_html"></div>
+      <div class="individual_cetgory_1"></div>
+      <div class="individual_cetgory_2"></div>
+      <div class="individual_cetgory_3"></div>
+      <div class="individual_cetgory_4"></div>
+      <div class="individual_cetgory_5..."></div>
+      <canvas></canvas>
+    </div> -->
+
   </div>
 
+  <div class="buffer3">
+  </div>
 </body>
 
 <script>
+
+  const categoryColors = {
+    "Auto": '#FF0000',           // Red
+    "Beauty": '#FF7F00',         // Orange
+    "Clothing": '#FFFF00',       // Yellow
+    "Entertainment": '#00FF00',  // Green
+    "Event": '#0000FF',          // Blue
+    "Food": '#4B0082',           // Indigo
+    "General": '#8B00FF',        // Violet
+    "Gift": '#FF1493',           // Deep Pink
+    "Groceries": '#FFFFFF',      // White
+    "Hobbies": '#e884f5',        // Light Purple
+    "Medical": '#00CED1',        // Dark Turquoise
+    "Personal Care": '#006400',  // Dark Green
+    "Technology": '#000000',     // Black
+    "Travel": '#6b312b',         // Brown
+    "Education": '#f7e5c1'       // Cream
+  };
+
+
+  // Chart.defaults.backgroundColor = '#1e6deb', '#46de28';
+  // Chart.defaults.borderColor = '#36A2EB';
+  Chart.defaults.color = '#ffffff';
+
+  var month_totals_div = document.getElementById("month_totals")
+  var category_breakdowns_div = document.getElementById("category_breakdowns")
+
 
   fetch('http://localhost:8000/get_month_totals').then(response => {
     return response.json()
@@ -50,7 +92,7 @@
       containerHTML.appendChild(dateHTML);
       containerHTML.appendChild(costHTML);
 
-      document.body.appendChild(containerHTML);
+      month_totals_div.appendChild(containerHTML);
 
       // this is what is created from above
       // <div class="rowContainer">
@@ -61,11 +103,15 @@
     }
 
     var buffer = document.createElement('div');
-    buffer.className = "buffer"
+    buffer.className = "buffer category-header"
     buffer.innerHTML = 'Category Breakdown'
-    document.body.appendChild(buffer)
+    month_totals_div.appendChild(buffer)
   })
 
+
+  // <div class="newdiv">
+  //     <>
+  // </div>
 
   month_labels = []
   month_costs = []
@@ -73,30 +119,45 @@
     return response.json()
   }).then(data => {
     for (let [month_year, category_dictionary] of Object.entries(data)) {
+      var the_centerer = document.createElement('div');
+      the_centerer.className = "yeet"
+      category_breakdowns_div.appendChild(the_centerer)
+
+
+
       var month_yearHTML = document.createElement('div');
       month_yearHTML.className = "month_yearHTML"
-      document.body.appendChild(month_yearHTML);
+      the_centerer.appendChild(month_yearHTML);
       month_yearHTML.innerHTML = month_year;
-      for (let [category, total_amount] of Object.entries(category_dictionary)) {
+
+      // Sort the categories alphabetically
+      const sortedCategories = Object.keys(category_dictionary).sort();
+
+      for (let category of sortedCategories) {
+        var total_amount = category_dictionary[category];
         total_amount_pie = total_amount.toFixed(2) * -1
-        total_amount = "$" + String(total_amount.toFixed(2))
-        // console.log(`${month_year}: ${category_dictionary}`);
+        total_amount = "$" + String(total_amount.toFixed(2));
+
         var totalHTML = document.createElement('div');
-
         totalHTML.className = "total"
-
         totalHTML.innerHTML = category + " " + total_amount;
+        the_centerer.appendChild(totalHTML);
 
-        document.body.appendChild(totalHTML);
         month_labels.push(category)
         month_costs.push(total_amount_pie)
       }
+
+      linebreak = document.createElement("br");
+      the_centerer.appendChild(linebreak)
+
       console.log(month_labels)
       console.log(month_costs)
 
       var new_month_canvas = document.createElement('canvas');
-      document.body.appendChild(new_month_canvas)
-
+      // <div class="yeet">
+      //   <canvas></canvas>
+      // </div>
+      the_centerer.appendChild(new_month_canvas)
       // console.log(month_costs)
       new Chart(new_month_canvas, {
         type: 'pie',
@@ -105,10 +166,12 @@
           datasets: [{
             label: "This Month's Category Distribution",
             data: month_costs,
+            backgroundColor: month_labels.map(label => categoryColors[label] || '#808080'), // Default to gray if no match
             borderWidth: 1
           }]
         },
         options: {
+          responsive: true,
           scales: {
             y: {
               beginAtZero: true

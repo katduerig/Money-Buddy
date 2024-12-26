@@ -42,6 +42,10 @@
                 <input type="radio" name="method" value="Capital One Debit" />
                 <span>Capital One Debit</span>
             </div>
+            <div class="pairfour">
+                <input type="radio" name="method" value="Ulta Credit" />
+                <span>Ulta Credit</span>
+            </div>
 
             <label class="answers" for="cat">What catagory would you place this in?</label>
 
@@ -120,6 +124,20 @@
                     Travel</img>
                 </div>
 
+                <div class="technology">
+                    <input type="radio" name="category" value="Technology" />
+                    <img class="multiplechoiceimg" src="/technology.png" alt="technology">
+                    Technology</img>
+                </div>
+
+                <div class="hobbies">
+                    <input type="radio" name="category" value="Hobbies" />
+                    <img class="multiplechoiceimg" src="/beauty.png" alt="hobbies">
+                    Hobbies</img>
+                </div>
+
+
+
             </div>
             <div class="submitbutton">
                 <input class="submit" type="submit" value="Submit" />
@@ -133,6 +151,15 @@
     document.getElementById('answers').addEventListener('submit', function (event) {
         console.log('Form submission prevented.');
     });
+
+    // Set the current date as the default value for the date picker
+    window.onload = function () {
+        const dateInput = document.getElementById("when");
+        const today = new Date();
+        const formattedDate = today.toISOString().slice(0, 10); // Format date as YYYY-MM-DD
+        dateInput.value = formattedDate;
+    };
+
 </script>
 
 

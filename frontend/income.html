@@ -18,18 +18,53 @@
 </style>
 
 <body>
-	<h1>TODO</h1>
-	<!-- <form id="answers" method="post" action="/info">
-		<label for="amount" class="answers">How much did you make?</label>
-		<input id="amount" name="amount" type="text" />
+	<h1 class="income_header">Income</h1>
+	<!DOCTYPE html>
+	<html lang="en">
 
-		<label for="wherefrom" class="answers">Where is this from?</label>
-		<input id="wherefrom" name="wherefrom" type="text" />
+	<head>
+		<meta charset="UTF-8">
+		<title>Income Tracker</title>
+		<link rel="stylesheet" href="master.css">
+	</head>
 
-		<div class="submitbutton">
-			<input class="submit" type="submit" value="Submit" />
-		</div>
-	</form> -->
+	<body>
+		<form id="income-form" method="post" action="/submit_income">
+			<label for="source">Where is this money from?</label>
+			<select id="source" name="source" required>
+				<option value="Allegheny College">Allegheny College</option>
+				<option value="Depop">Depop</option>
+			</select>
+
+			<label for="amount">How much did you make?</label>
+			<input id="amount" name="amount" type="text" required />
+
+			<label for="date">What is the date of payment?</label>
+			<input type="date" id="date" name="date" required />
+
+			<label for="note">Notes?</label>
+			<input id="note" name="note" type="text" />
+
+			<input type="submit" value="Log Income" />
+		</form>
+
+
+	</body>
+
+
+
+	</html>
+
+	<script>
+		// Automatically set the date picker to today's date
+		document.addEventListener("DOMContentLoaded", function () {
+			const dateInput = document.getElementById("date");
+			const today = new Date().toISOString().split("T")[0];
+			dateInput.value = today;
+		});
+	</script>
+
+
 </body>
 
 <script>

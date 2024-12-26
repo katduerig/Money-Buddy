@@ -35,7 +35,7 @@ async def expense_submitted(request):
     category = ''
     
     if "note" in named_param and named_param["note"] !="":
-        note = named_param["note"]
+        note = unquote(named_param["note"])
 
 
     if "amount" in named_param and named_param["amount"] !="":
@@ -78,6 +78,34 @@ async def get_monthly_category_totals(request):
     string_version= json.dumps(month_totals)
     return PlainTextResponse(string_version)
 
+#from chatgpt for submitting income
+async def income_submitted(request):
+    data = await request.body()
+    data = data.decode("utf-8")
+    data = data.replace('+', ' ')
+    parameters = data.split('&')
+    named_param = {}
+
+    for param in parameters:
+        key, value = param.split('=')
+        named_param[key] = value
+
+    # Retrieve each form field
+    source = unquote(named_param.get("source", ""))
+    amount = unquote(named_param.get("amount", ""))
+    date = unquote(named_param.get("date", ""))
+    date_object = datetime.strptime(date, "%Y-%m-%d")
+    date = date_object.strftime("%m/%d/%y").lstrip('0').replace('/0', '/')
+    note = unquote(named_param.get("note", ""))
+
+    # Send data to the income sheet
+    sheets.insert_income_row(date, amount, source, note)
+
+    # Send the user to a thank-you page
+    with open('frontend/thanks.html') as f:
+        return HTMLResponse(f.read())
+
+
 import pathlib
 def file_delivery(filename):
     if type(filename) is str:
@@ -107,13 +135,16 @@ routes = [
     Route('/get_monthly_category_totals', endpoint=get_monthly_category_totals),
     
     Route('/info', endpoint=expense_submitted, methods=['POST']),
+    Route('/submit_income', endpoint=income_submitted, methods=['POST']),
 
     # File delivery
     Route('/', endpoint=file_delivery('index.html')),
     Route('/purchases.html', endpoint=file_delivery('purchases.html')),
     Route('/thanks.html', endpoint=file_delivery('thanks.html')),
+    Route('/index.html', endpoint=file_delivery('index.html')),
     Route('/income.html', endpoint=file_delivery('income.html')),
     Route('/calculations.html', endpoint=file_delivery('calculations.html')),
+    Route('/income_totals.html', endpoint=file_delivery('income_totals.html')),
 
     Route('/homepage.css', endpoint=file_delivery('homepage.css')),
     Route('/purchases.css', endpoint=file_delivery('purchases.css')),
