@@ -34,7 +34,3 @@ This is the format the program creates:
 
 Date / Price / Category / Note / Company / Method of Payment\
 8/22/24 / -$5.00 / Food / Bagel / Starbucks / Capital One Debit Card
-
-## Future plans
-
-The income tab isn't functional yet, I plan to hook up to secondary google sheet.
